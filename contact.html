@@ -187,28 +187,32 @@
         <!-- Form Box -->
         <div class="contact-form reveal">
           <h2 style="margin-bottom: 30px; font-size: 2rem; color: var(--primary-navy);">Send Us A Message</h2>
-          <form onsubmit="submitContactForm(event)">
+          <form action="https://formsubmit.co/jbph.finance23@gmail.com" method="POST">
+            <!-- Form Submit Configuration -->
+            <input type="hidden" name="_subject" value="New Inquiry from JBPH Website">
+            <input type="hidden" name="_template" value="table">
+            
             <div class="form-row">
               <div class="form-group">
                 <label>Full Name</label>
-                <input type="text" id="contact-name" placeholder="John Doe" required>
+                <input type="text" name="Full Name" placeholder="John Doe" required>
               </div>
               <div class="form-group">
                 <label>Phone Number</label>
-                <input type="tel" id="contact-phone" placeholder="+91 XXXXX XXXXX" required>
+                <input type="tel" name="Phone Number" placeholder="+91 XXXXX XXXXX" required>
               </div>
             </div>
             <div class="form-group">
               <label>Email Address (Optional)</label>
-              <input type="email" id="contact-email" placeholder="example@email.com">
+              <input type="email" name="Email Address" placeholder="example@email.com">
             </div>
             <div class="form-group">
               <label>Subject / Service Needed</label>
-              <input type="text" id="contact-subject" placeholder="E.g. Business Loan Inquiry" required>
+              <input type="text" name="Subject" placeholder="E.g. Business Loan Inquiry" required>
             </div>
             <div class="form-group">
               <label>Message</label>
-              <textarea id="contact-message" rows="5" placeholder="How can we help you?" required></textarea>
+              <textarea name="Message" rows="5" placeholder="How can we help you?" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.1rem; padding: 15px;">Send Inquiry</button>
           </form>
@@ -232,22 +236,5 @@
   </footer>
 
   <script src="js/main.js"></script>
-  <script>
-    function submitContactForm(event) {
-      event.preventDefault();
-      const name = document.getElementById('contact-name').value || 'Not provided';
-      const phone = document.getElementById('contact-phone').value || 'Not provided';
-      const email = document.getElementById('contact-email').value || 'Not provided';
-      const subject = document.getElementById('contact-subject').value || 'Not provided';
-      const message = document.getElementById('contact-message').value || 'Not provided';
-
-      const waMessage = `*New Website Inquiry!* 💬%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Email:* ${email}%0A*Subject:* ${subject}%0A*Message:* ${message}`;
-      
-      window.open(`https://wa.me/919607968569?text=${waMessage}`, '_blank');
-      
-      event.target.reset();
-      alert('Forwarding you to WhatsApp to send your inquiry!');
-    }
-  </script>
 </body>
 </html>
