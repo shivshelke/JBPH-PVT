@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apply For Loan | JBPH Financial Services</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    body { background-color: var(--bg-light); }
+    body {
+      background-color: var(--bg-light);
+    }
+
     .apply-container {
       max-width: 800px;
       margin: 80px auto;
@@ -17,18 +23,18 @@
       border-radius: var(--border-radius);
       box-shadow: var(--shadow-lg);
     }
-    
+
     .apply-header {
       text-align: center;
       margin-bottom: 40px;
     }
-    
+
     .apply-header h1 {
       color: var(--primary-navy);
       font-size: 2.5rem;
       margin-bottom: 10px;
     }
-    
+
     .apply-header p {
       color: var(--text-light);
     }
@@ -43,8 +49,15 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .form-group {
@@ -57,7 +70,8 @@
       margin-bottom: 8px;
     }
 
-    .form-group input, .form-group select {
+    .form-group input,
+    .form-group select {
       width: 100%;
       padding: 15px;
       border: 1px solid #ddd;
@@ -68,7 +82,8 @@
       outline: none;
     }
 
-    .form-group input:focus, .form-group select:focus {
+    .form-group input:focus,
+    .form-group select:focus {
       border-color: var(--accent-gold);
     }
 
@@ -98,6 +113,7 @@
       text-align: center;
       padding: 40px 0;
     }
+
     .success-msg i {
       font-size: 5rem;
       color: var(--accent-green);
@@ -105,6 +121,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Header minimal -->
@@ -125,7 +142,7 @@
   <!-- Application Form -->
   <div class="container" style="padding-top: 40px;">
     <div class="apply-container">
-      
+
       <div class="apply-header">
         <h1>Online Application</h1>
         <p>Complete this secure form to check your loan eligibility.</p>
@@ -155,7 +172,8 @@
           <input type="text" id="city" placeholder="E.g. Jalgaon, 425001" required>
         </div>
         <div class="btn-group" style="justify-content: flex-end;">
-          <button type="button" class="btn btn-primary" onclick="nextStep(2)">Next Step <i class="fa-solid fa-arrow-right"></i></button>
+          <button type="button" class="btn btn-primary" onclick="nextStep(2)">Next Step <i
+              class="fa-solid fa-arrow-right"></i></button>
         </div>
       </div>
 
@@ -187,15 +205,17 @@
         </div>
         <div class="btn-group">
           <button type="button" class="btn btn-outline" onclick="prevStep(1)">Back</button>
-          <button type="button" class="btn btn-primary" onclick="nextStep(3)">Next Step <i class="fa-solid fa-arrow-right"></i></button>
+          <button type="button" class="btn btn-primary" onclick="nextStep(3)">Next Step <i
+              class="fa-solid fa-arrow-right"></i></button>
         </div>
       </div>
 
       <!-- Step 3: Final Submission -->
       <div class="form-step" id="step3">
         <h3 style="margin-bottom: 20px;">Step 3: Verification</h3>
-        <p style="color: var(--text-light); margin-bottom: 20px;">I authorize JBPH Financial Services Pvt. Ltd. and its representatives to contact me. I understand that this does not constitute a loan approval.</p>
-        
+        <p style="color: var(--text-light); margin-bottom: 20px;">I authorize JBPH Financial Services Pvt. Ltd. and its
+          representatives to contact me. I understand that this does not constitute a loan approval.</p>
+
         <div class="btn-group">
           <button type="button" class="btn btn-outline" onclick="prevStep(2)">Back</button>
           <button type="button" class="btn btn-primary" onclick="submitForm()">Submit Application</button>
@@ -207,7 +227,8 @@
         <div class="success-msg">
           <i class="fa-solid fa-circle-check"></i>
           <h2>Application Received!</h2>
-          <p style="margin: 20px 0; color: var(--text-light);">Thank you for choosing JBPH Financial Services. One of our senior representatives will contact you shortly to process your application.</p>
+          <p style="margin: 20px 0; color: var(--text-light);">Thank you for choosing JBPH Financial Services. One of
+            our senior representatives will contact you shortly to process your application.</p>
           <a href="index.html" class="btn btn-outline">Return to Home</a>
         </div>
       </div>
@@ -220,19 +241,19 @@
     function nextStep(step) {
       document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
       document.getElementById('step' + step).classList.add('active');
-      
+
       const progress = document.getElementById('progress');
-      if(step === 2) progress.style.width = '66.66%';
-      if(step === 3) progress.style.width = '100%';
+      if (step === 2) progress.style.width = '66.66%';
+      if (step === 3) progress.style.width = '100%';
     }
 
     function prevStep(step) {
       document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
       document.getElementById('step' + step).classList.add('active');
-      
+
       const progress = document.getElementById('progress');
-      if(step === 1) progress.style.width = '33.33%';
-      if(step === 2) progress.style.width = '66.66%';
+      if (step === 1) progress.style.width = '33.33%';
+      if (step === 2) progress.style.width = '66.66%';
     }
 
     function submitForm() {
@@ -245,39 +266,19 @@
       const loanAmount = document.getElementById('loan-amount').value || 'Not provided';
       const empType = document.getElementById('emp-type').value || 'Not provided';
 
-      const formData = {
-        "Full Name": name,
-        "Mobile Number": mobile,
-        "Email": email,
-        "City": city,
-        "Loan Type Required": loanType,
-        "Loan Amount": "₹" + loanAmount,
-        "Employment Type": empType,
-        _subject: "New Loan Application from JBPH Website",
-        _template: "table"
-      };
+      // Format message for WhatsApp
+      const waMessage = `*New Loan Application!* 🟢%0A%0A*Name:* ${name}%0A*Mobile:* ${mobile}%0A*Email:* ${email}%0A*City:* ${city}%0A%0A*Loan Type:* ${loanType}%0A*Amount:* ₹${loanAmount}%0A*Employment:* ${empType}`;
 
-      // Send to FormSubmit via AJAX
-      fetch("https://formsubmit.co/ajax/jbph.finance23@gmail.com", {
-        method: "POST",
-        headers: { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      })
-      .then(response => response.json())
-      .then(data => {
-        // Show success screen
-        document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
-        document.getElementById('step-success').classList.add('active');
-        document.querySelector('.progress-bar').style.display = 'none';
-        document.querySelector('.apply-header').style.display = 'none';
-      })
-      .catch(error => {
-        alert("There was an error submitting the form. Please try again.");
-      });
+      // Open WhatsApp
+      window.open(`https://wa.me/919607968569?text=${waMessage}`, '_blank');
+
+      // Show success screen
+      document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+      document.getElementById('step-success').classList.add('active');
+      document.querySelector('.progress-bar').style.display = 'none';
+      document.querySelector('.apply-header').style.display = 'none';
     }
   </script>
 </body>
+
 </html>
