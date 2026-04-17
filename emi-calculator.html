@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EMI Calculator | JBPH Financial Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .inner-hero {
+      padding: 150px 0 80px;
+      background-color: var(--primary-dark);
+      background-image: linear-gradient(90deg, rgba(4,13,26,0.95), rgba(10,25,47,0.8));
+      color: white;
+      text-align: center;
+    }
+    .inner-hero h1 { color: var(--accent-gold); margin-bottom: 15px; }
+
+    .calc-container {
+      max-width: 800px;
+      margin: -40px auto 80px auto;
+      background: var(--bg-white);
+      padding: 40px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      z-index: 10;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--primary-navy);
+    }
+
+    .calc-input-wrapper {
+      display: flex;
+      align-items: center;
+      background: var(--bg-light);
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+    }
+
+    .calc-input-wrapper span {
+      padding: 15px;
+      background: #EAEAEA;
+      color: var(--primary-navy);
+      font-weight: 600;
+    }
+
+    .form-group input[type="range"] {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    .form-group input[type="number"] {
+      flex: 1;
+      padding: 15px;
+      border: none;
+      background: transparent;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--primary-navy);
+      outline: none;
+    }
+
+    .results-box {
+      margin-top: 40px;
+      background: var(--primary-navy);
+      color: white;
+      padding: 30px;
+      border-radius: var(--border-radius);
+      text-align: center;
+    }
+
+    .results-box h3 {
+      color: var(--accent-gold);
+      margin-bottom: 20px;
+    }
+
+    .emi-amount {
+      font-size: 3rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      margin-bottom: 20px;
+    }
+
+    .result-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+    }
+
+    .result-item span {
+      display: block;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+    }
+
+    .result-item strong {
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="nav-container">
+      <div class="logo-area">
+        <div>
+          <a href="index.html" class="logo-text">JBPH <span style="color:var(--accent-gold);">FINSERV</span></a>
+        </div>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="emi-calculator.html" class="active">EMI Calculator</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="apply.html" class="btn btn-primary">Apply Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Inner Hero -->
+  <section class="inner-hero">
+    <div class="container">
+      <h1>EMI Calculator</h1>
+      <p>Estimate your monthly loan repayments instantly.</p>
+    </div>
+  </section>
+
+  <!-- Calculator Section -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="calc-container reveal active">
+        
+        <div class="form-group">
+          <label for="principal">Loan Amount</label>
+          <div class="calc-input-wrapper">
+            <span>₹</span>
+            <input type="number" id="principal" value="2500000" min="10000" step="10000">
+          </div>
+          <input type="range" id="principal-range" min="100000" max="50000000" value="2500000" step="100000">
+        </div>
+
+        <div class="form-group">
+          <label for="interest">Interest Rate (% P.A.)</label>
+          <div class="calc-input-wrapper">
+            <span>%</span>
+            <input type="number" id="interest" value="8.5" step="0.1">
+          </div>
+          <input type="range" id="interest-range" min="5" max="25" value="8.5" step="0.1">
+        </div>
+
+        <div class="form-group">
+          <label for="tenure">Loan Tenure (Years)</label>
+          <div class="calc-input-wrapper">
+            <span>Yrs</span>
+            <input type="number" id="tenure" value="15" min="1" max="30">
+          </div>
+          <input type="range" id="tenure-range" min="1" max="30" value="15" step="1">
+        </div>
+
+        <div class="results-box">
+          <h3>Your Monthly EMI</h3>
+          <div class="emi-amount" id="emi-result">₹ 24,618</div>
+          <div class="result-details">
+            <div class="result-item">
+              <span>Total Interest Payable</span>
+              <strong id="total-interest">₹ 19,31,235</strong>
+            </div>
+            <div class="result-item">
+              <span>Total Amount (Principal + Interest)</span>
+              <strong id="total-amount">₹ 44,31,235</strong>
+            </div>
+          </div>
+          
+          <div style="margin-top: 30px;">
+            <a href="apply.html" class="btn btn-primary" style="width: 100%;">Apply For Loan With This EMI</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4 style="color:var(--accent-gold);">JBPH FINSERV</h4>
+          <p class="footer-text">One Point Solution For All Financial Needs.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // EMI Calculator Logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const principalInput = document.getElementById('principal');
+      const principalRange = document.getElementById('principal-range');
+      const interestInput = document.getElementById('interest');
+      const interestRange = document.getElementById('interest-range');
+      const tenureInput = document.getElementById('tenure');
+      const tenureRange = document.getElementById('tenure-range');
+      
+      const emiResult = document.getElementById('emi-result');
+      const totalInterestResult = document.getElementById('total-interest');
+      const totalAmountResult = document.getElementById('total-amount');
+
+      const formatCurrency = (num) => {
+        return new Intl.NumberFormat('en-IN', {
+          style: 'currency',
+          currency: 'INR',
+          maximumFractionDigits: 0
+        }).format(num);
+      };
+
+      const calculateEMI = () => {
+        const p = parseFloat(principalInput.value);
+        const r = parseFloat(interestInput.value) / 12 / 100; // Monthly interest
+        const n = parseFloat(tenureInput.value) * 12; // Months
+
+        if(p > 0 && r > 0 && n > 0) {
+          const emi = p * r * (Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+          const totalAmount = emi * n;
+          const totalInterest = totalAmount - p;
+
+          emiResult.textContent = formatCurrency(emi);
+          totalInterestResult.textContent = formatCurrency(totalInterest);
+          totalAmountResult.textContent = formatCurrency(totalAmount);
+        } else {
+          emiResult.textContent = "₹ 0";
+          totalInterestResult.textContent = "₹ 0";
+          totalAmountResult.textContent = "₹ 0";
+        }
+      };
+
+      // Sync ranges and inputs
+      const setupSync = (input, range) => {
+        input.addEventListener('input', () => {
+          range.value = input.value;
+          calculateEMI();
+        });
+        range.addEventListener('input', () => {
+          input.value = range.value;
+          calculateEMI();
+        });
+      };
+
+      setupSync(principalInput, principalRange);
+      setupSync(interestInput, interestRange);
+      setupSync(tenureInput, tenureRange);
+
+      // Initial calculation
+      calculateEMI();
+    });
+  </script>
+</body>
+</html>

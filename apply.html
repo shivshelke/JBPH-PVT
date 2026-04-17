@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply For Loan | JBPH Financial Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { background-color: var(--bg-light); }
+    .apply-container {
+      max-width: 800px;
+      margin: 80px auto;
+      background: var(--bg-white);
+      padding: 50px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .apply-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .apply-header h1 {
+      color: var(--primary-navy);
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    
+    .apply-header p {
+      color: var(--text-light);
+    }
+
+    .form-step {
+      display: none;
+    }
+
+    .form-step.active {
+      display: block;
+      animation: fadeIn 0.5s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      transition: var(--transition);
+      outline: none;
+    }
+
+    .form-group input:focus, .form-group select:focus {
+      border-color: var(--accent-gold);
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: #EAEAEA;
+      border-radius: 10px;
+      margin-bottom: 40px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent-gold);
+      width: 33.33%;
+      transition: width 0.3s ease;
+    }
+
+    .success-msg {
+      text-align: center;
+      padding: 40px 0;
+    }
+    .success-msg i {
+      font-size: 5rem;
+      color: var(--accent-green);
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header minimal -->
+  <header class="header">
+    <div class="nav-container">
+      <div class="logo-area">
+        <a href="index.html" class="logo-text">JBPH <span style="color:var(--accent-gold);">FINSERV</span></a>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Back to Home</a></li>
+          <li><a href="contact.html">Contact Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Application Form -->
+  <div class="container" style="padding-top: 40px;">
+    <div class="apply-container">
+      
+      <div class="apply-header">
+        <h1>Online Application</h1>
+        <p>Complete this secure form to check your loan eligibility.</p>
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress"></div>
+      </div>
+
+      <!-- Step 1: Personal Details -->
+      <div class="form-step active" id="step1">
+        <h3 style="margin-bottom: 20px;">Step 1: Contact Information</h3>
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="name" placeholder="As per PAN card" required>
+        </div>
+        <div class="form-group">
+          <label>Mobile Number</label>
+          <input type="tel" id="mobile" placeholder="+91" required>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="email" placeholder="example@gmail.com" required>
+        </div>
+        <div class="form-group">
+          <label>City & Pin Code</label>
+          <input type="text" id="city" placeholder="E.g. Jalgaon, 425001" required>
+        </div>
+        <div class="btn-group" style="justify-content: flex-end;">
+          <button type="button" class="btn btn-primary" onclick="nextStep(2)">Next Step <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Step 2: Loan Requirements -->
+      <div class="form-step" id="step2">
+        <h3 style="margin-bottom: 20px;">Step 2: Loan Details</h3>
+        <div class="form-group">
+          <label>Required Loan Type</label>
+          <select id="loan-type">
+            <option value="Home Loan">Home Loan</option>
+            <option value="Business Loan">Business Loan</option>
+            <option value="Project Finance">Project Finance</option>
+            <option value="LAP">Loan Against Property</option>
+            <option value="Working Capital">Working Capital / OD</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Required Loan Amount (₹)</label>
+          <input type="number" id="loan-amount" placeholder="e.g. 5000000" required>
+        </div>
+        <div class="form-group">
+          <label>Employment Type</label>
+          <select id="emp-type">
+            <option value="Salaried">Salaried</option>
+            <option value="Self Employed">Self Employed / Business Owner</option>
+            <option value="Professional">Professional (Doctor, CA, etc)</option>
+          </select>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-outline" onclick="prevStep(1)">Back</button>
+          <button type="button" class="btn btn-primary" onclick="nextStep(3)">Next Step <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Step 3: Final Submission -->
+      <div class="form-step" id="step3">
+        <h3 style="margin-bottom: 20px;">Step 3: Verification</h3>
+        <p style="color: var(--text-light); margin-bottom: 20px;">I authorize JBPH Financial Services Pvt. Ltd. and its representatives to contact me. I understand that this does not constitute a loan approval.</p>
+        
+        <div class="btn-group">
+          <button type="button" class="btn btn-outline" onclick="prevStep(2)">Back</button>
+          <button type="button" class="btn btn-primary" onclick="submitForm()">Submit Application</button>
+        </div>
+      </div>
+
+      <!-- Success step -->
+      <div class="form-step" id="step-success">
+        <div class="success-msg">
+          <i class="fa-solid fa-circle-check"></i>
+          <h2>Application Received!</h2>
+          <p style="margin: 20px 0; color: var(--text-light);">Thank you for choosing JBPH Financial Services. One of our senior representatives will contact you shortly to process your application.</p>
+          <a href="index.html" class="btn btn-outline">Return to Home</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    function nextStep(step) {
+      document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+      document.getElementById('step' + step).classList.add('active');
+      
+      const progress = document.getElementById('progress');
+      if(step === 2) progress.style.width = '66.66%';
+      if(step === 3) progress.style.width = '100%';
+    }
+
+    function prevStep(step) {
+      document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+      document.getElementById('step' + step).classList.add('active');
+      
+      const progress = document.getElementById('progress');
+      if(step === 1) progress.style.width = '33.33%';
+      if(step === 2) progress.style.width = '66.66%';
+    }
+
+    function submitForm() {
+      // Typically an AJAX request would go here
+      document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+      document.getElementById('step-success').classList.add('active');
+      document.querySelector('.progress-bar').style.display = 'none';
+      document.querySelector('.apply-header').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

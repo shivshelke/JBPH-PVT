@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services | JBPH Financial Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .inner-hero {
+      padding: 150px 0 80px;
+      background-color: var(--primary-dark);
+      background-image: linear-gradient(90deg, rgba(4,13,26,0.95), rgba(10,25,47,0.8));
+      color: white;
+      text-align: center;
+    }
+    .inner-hero h1 {
+      color: var(--accent-gold);
+      margin-bottom: 15px;
+    }
+    
+    .service-detail-section {
+      padding: 60px 0;
+      border-bottom: 1px solid #EAEAEA;
+    }
+    
+    .service-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 40px;
+      align-items: center;
+    }
+    
+    .service-detail-icon {
+      font-size: 5rem;
+      color: var(--primary-navy);
+      background: var(--bg-light);
+      width: 150px;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--border-radius);
+      margin: 0 auto;
+    }
+    
+    .service-detail-content h2 {
+      margin-bottom: 15px;
+      color: var(--primary-navy);
+    }
+    
+    .service-detail-content p {
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+    
+    .service-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .service-features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+    }
+    
+    .service-features i {
+      color: var(--accent-gold);
+    }
+    
+    @media (max-width: 768px) {
+      .service-detail-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .service-features {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="nav-container">
+      <div class="logo-area">
+        <div>
+          <a href="index.html" class="logo-text">JBPH <span style="color:var(--accent-gold);">FINSERV</span></a>
+          <span class="logo-tagline">One Point Solution For All Financial Needs</span>
+        </div>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="emi-calculator.html">EMI Calculator</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="apply.html" class="btn btn-primary">Apply Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Inner Hero -->
+  <section class="inner-hero">
+    <div class="container">
+      <h1>Premium Financial Services</h1>
+      <p>Explore our comprehensive portfolio of 15+ funding solutions designed for your success.</p>
+    </div>
+  </section>
+
+  <!-- Service List -->
+  <section class="section">
+    <div class="container">
+      
+      <!-- Home Loan -->
+      <div id="home-loan" class="service-detail-section reveal">
+        <div class="service-detail-grid">
+          <div class="service-detail-icon"><i class="fa-solid fa-house-chimney"></i></div>
+          <div class="service-detail-content">
+            <h2>Home Loan</h2>
+            <p>Purchase, build, or renovate your dream home with our competitive home loan solutions. We negotiate with top banks to bring you the lowest interest rates and flexible repayment tenures.</p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> High Loan-to-Value Ratio</li>
+              <li><i class="fa-solid fa-check"></i> Balance Transfer Options</li>
+              <li><i class="fa-solid fa-check"></i> Overdraft Facility</li>
+              <li><i class="fa-solid fa-check"></i> Subsidy Consultations (PMAY)</li>
+            </ul>
+            <a href="apply.html" class="btn btn-primary" style="margin-top:20px;">Apply for Home Loan</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Business Loan -->
+      <div id="business-loan" class="service-detail-section reveal">
+        <div class="service-detail-grid">
+          <div class="service-detail-icon"><i class="fa-solid fa-building"></i></div>
+          <div class="service-detail-content">
+            <h2>Business Loan & Working Capital</h2>
+            <p>Empower your enterprise with collateral-free business loans, Cash Credit (CC), and Overdraft (OD) limits. Designed for fast scaling and managing daily operational gaps.</p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> Unsecured Business Loans</li>
+              <li><i class="fa-solid fa-check"></i> Machinery Term Loans</li>
+              <li><i class="fa-solid fa-check"></i> Commercial Property Loan</li>
+              <li><i class="fa-solid fa-check"></i> Bank Guarantees</li>
+            </ul>
+            <a href="apply.html" class="btn btn-primary" style="margin-top:20px;">Apply for Business Loan</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Finance -->
+      <div id="project-finance" class="service-detail-section reveal">
+        <div class="service-detail-grid">
+          <div class="service-detail-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <div class="service-detail-content">
+            <h2>Project & Builder Finance</h2>
+            <p>Specialized structuring for large scale real estate developments and industrial projects. We assist from drafting project reports to financial closure and syndication.</p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> Real Estate / Builder Finance</li>
+              <li><i class="fa-solid fa-check"></i> Industrial Project Setup Funding</li>
+              <li><i class="fa-solid fa-check"></i> Private Equity / Debt Syndication</li>
+              <li><i class="fa-solid fa-check"></i> Customized Repayment Terms</li>
+            </ul>
+            <a href="contact.html" class="btn btn-outline" style="margin-top:20px;">Schedule Consultation</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loan Against Property -->
+      <div id="lap" class="service-detail-section reveal">
+        <div class="service-detail-grid">
+          <div class="service-detail-icon"><i class="fa-solid fa-keys"></i></div>
+          <div class="service-detail-content">
+            <h2>Loan Against Property (LAP)</h2>
+            <p>Unlock the hidden value of your real estate. Avail high-value loans at lower interest rates by keeping your residential or commercial property as collateral.</p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> Long Repayment Tenure</li>
+              <li><i class="fa-solid fa-check"></i> Low Interest Rates</li>
+              <li><i class="fa-solid fa-check"></i> High Eligibility Amounts</li>
+            </ul>
+            <a href="apply.html" class="btn btn-primary" style="margin-top:20px;">Apply for LAP</a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4 style="color:var(--accent-gold);">JBPH FINSERV</h4>
+          <p class="footer-text">One Point Solution For All Financial Needs.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="emi-calculator.html">EMI Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <ul class="footer-contact">
+            <li><i class="fa-solid fa-location-dot"></i> <span>Jalgaon, Maharashtra</span></li>
+            <li><i class="fa-solid fa-envelope"></i> <span><a href="mailto:jbph.finance23@gmail.com">jbph.finance23@gmail.com</a></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
