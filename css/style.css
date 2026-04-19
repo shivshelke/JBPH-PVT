@@ -558,11 +558,21 @@ img {
   margin-bottom: 5px;
 }
 
-.leader-card p {
+.leader-card > p {
   color: var(--accent-gold);
   font-size: 0.9rem;
   font-weight: 500;
   margin-bottom: 10px;
+}
+
+.leader-details p {
+  color: var(--text-main);
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+
+.leader-details p strong {
+  color: var(--primary-navy);
 }
 
 .leader-exp {
